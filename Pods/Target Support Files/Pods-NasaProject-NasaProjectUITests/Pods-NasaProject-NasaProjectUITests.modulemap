@@ -1,0 +1,6 @@
+framework module Pods_NasaProject_NasaProjectUITests {
+  umbrella header "Pods-NasaProject-NasaProjectUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

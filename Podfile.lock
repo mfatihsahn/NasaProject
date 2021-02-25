@@ -1,0 +1,37 @@
+PODS:
+  - Alamofire (5.0.0-rc.2)
+  - AlamofireObjectMapper (6.2.0):
+    - Alamofire (= 5.0.0-rc.2)
+    - ObjectMapper (~> 3.5.1)
+  - ASProgressHud (1.0.5)
+  - Kingfisher (6.1.0)
+  - netfox (1.19.0)
+  - ObjectMapper (3.5.3)
+
+DEPENDENCIES:
+  - Alamofire (= 5.0.0-rc.2)
+  - AlamofireObjectMapper (~> 6.2.0)
+  - ASProgressHud
+  - Kingfisher
+  - netfox
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireObjectMapper
+    - ASProgressHud
+    - Kingfisher
+    - netfox
+    - ObjectMapper
+
+SPEC CHECKSUMS:
+  Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
+  AlamofireObjectMapper: 74d1440c92c42bbcc2b5f4dc81654ac095ec669f
+  ASProgressHud: 170e18e72af3ffb28d36fd6e6d9caf998762ff58
+  Kingfisher: f5d8d60a0ef3edd642fd781bae60918599901aff
+  netfox: efeec1d23406df6cd605212f09a40957bb5654eb
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+
+PODFILE CHECKSUM: 4c4a965a146bc43130bc30470d54052760c76711
+
+COCOAPODS: 1.10.1
