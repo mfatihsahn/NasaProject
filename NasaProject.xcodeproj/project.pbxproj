@@ -26,7 +26,6 @@
 		3D927E0B25E45288009066EC /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927E0925E45288009066EC /* Photos.swift */; };
 		3D927E0C25E45288009066EC /* BaseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927E0A25E45288009066EC /* BaseResult.swift */; };
 		3D927E1125E45297009066EC /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927E1025E45297009066EC /* RequestManager.swift */; };
-		3D927E1625E452EF009066EC /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927E1525E452EF009066EC /* FilterViewModel.swift */; };
 		3D927E2025E455DF009066EC /* RouterStoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927E1F25E455DF009066EC /* RouterStoryBoard.swift */; };
 		3D927E2825E45644009066EC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927E2725E45644009066EC /* BaseViewController.swift */; };
 		3D927E2D25E45671009066EC /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927E2C25E45671009066EC /* BaseViewModel.swift */; };
@@ -97,7 +96,6 @@
 		3D927E0925E45288009066EC /* Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		3D927E0A25E45288009066EC /* BaseResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResult.swift; sourceTree = "<group>"; };
 		3D927E1025E45297009066EC /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
-		3D927E1525E452EF009066EC /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		3D927E1F25E455DF009066EC /* RouterStoryBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterStoryBoard.swift; sourceTree = "<group>"; };
 		3D927E2725E45644009066EC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3D927E2C25E45671009066EC /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 				3D927DB025E450B5009066EC /* LaunchScreen.storyboard */,
 				3D927DB325E450B5009066EC /* Info.plist */,
 				3D927DAB25E450B3009066EC /* NasaProject.xcdatamodeld */,
-				3D927E1525E452EF009066EC /* FilterViewModel.swift */,
 			);
 			path = NasaProject;
 			sourceTree = "<group>";
@@ -255,7 +252,6 @@
 				3DB7CD8D25E85C5000D91707 /* Services */,
 				3D927DF725E451E0009066EC /* Models */,
 				3D927E1025E45297009066EC /* RequestManager.swift */,
-				3DB7CD8825E845A100D91707 /* PhotoService.swift */,
 				3DB7CDB925E878BD00D91707 /* ApiExtensions.swift */,
 			);
 			path = API;
@@ -343,6 +339,7 @@
 		3DB7CD8D25E85C5000D91707 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3DB7CD8825E845A100D91707 /* PhotoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -642,7 +639,6 @@
 			files = (
 				3D927E0125E4526E009066EC /* Extensions.swift in Sources */,
 				3D927DA325E450B3009066EC /* AppDelegate.swift in Sources */,
-				3D927E1625E452EF009066EC /* FilterViewModel.swift in Sources */,
 				3DB7CDBF25E878E500D91707 /* PhotoRequest.swift in Sources */,
 				3D927E7025E45946009066EC /* MainTabBarNav.swift in Sources */,
 				3DB7CDBA25E878BD00D91707 /* ApiExtensions.swift in Sources */,

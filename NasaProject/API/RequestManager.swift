@@ -17,13 +17,9 @@ class RequestManager {
     
     var isLoading : Bool = false
     
-    static let apiUrl = "https://api.nasa.gov/"
-    let apiKey = "Dnn2zOy11Tgq7JEftOOsBxp5P1a9Owioa82iCYWZ"
-    
-    
     func request<T: Mappable>(_ url: URL,_ parameters: [String : Any] = [:], _ method: HTTPMethod = .get,_ httpHeaders: HTTPHeaders? = nil, encoding: ParameterEncoding = URLEncoding.default, success: @escaping (T) -> Void, failure: @escaping (Error) -> () ) {
         var parameters = parameters
-        parameters["api_key"]  =  self.apiKey
+        parameters["api_key"]  =  apiKey
         
         self.isLoading = true
         Util.internetConnectionChecker { (status) in

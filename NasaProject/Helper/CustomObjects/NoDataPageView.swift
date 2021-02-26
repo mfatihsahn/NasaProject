@@ -11,7 +11,7 @@ class NoDataPageView: UIView {
     var imageNoData : UIImageView!
     var labelNodata : UILabel!
     var screenSize = UIScreen.main.bounds
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initializeView()

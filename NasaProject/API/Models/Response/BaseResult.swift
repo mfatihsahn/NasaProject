@@ -11,7 +11,6 @@ import ObjectMapper
 
 class BaseResult<T: Mappable> : Mappable {
 
-   // var Data : T?
     var photos: [T]?
     
     init()
@@ -28,9 +27,6 @@ class BaseResult<T: Mappable> : Mappable {
         if let _ = try? map.value("photos") as [T] {
             photos <- map["photos"]
         }
-       //     else {
-//           Data <- map["results"]
-//        }
 
     }
 }

@@ -14,7 +14,7 @@ class PhotoService {
     
     func constructPhotoUrl(carType : String) -> URL? {
         
-        let photoBaseUrl = RequestManager.apiUrl + "mars-photos/api/v1/rovers/"
+        let photoBaseUrl = apiUrl + "mars-photos/api/v1/rovers/"
         var photoUrl = URL(string: photoBaseUrl)
         photoUrl?.appendPathComponent(carType)
         photoUrl?.appendPathComponent("photos")

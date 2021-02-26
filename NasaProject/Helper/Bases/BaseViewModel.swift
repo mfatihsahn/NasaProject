@@ -49,13 +49,5 @@ class BaseViewModel: NSObject {
             self.onLoadDidFinishWithError?(error)
         }
     }
-    
-    func registerNotification(name: NSNotification.Name, selecter: Selector) {
-        center.addObserver(self, selector: selecter, name: name, object: nil)
-    }
-    
-    func postNotification(name: NSNotification.Name, userInfo: [AnyHashable : Any]? = nil) {
-        center.post(name: name, object: nil, userInfo: userInfo)
-    }
         
 }

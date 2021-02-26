@@ -34,4 +34,8 @@ class DetailPopUp: BasePopUp {
             .capitalizingFirstLetter()
         titleImg.kf.setImage(with: URL(string: item.img_src), placeholder: UIImage.init(named: "defaultImage"), options: [.transition(.fade(1))], progressBlock: nil, completionHandler: nil)
     }
+    
+    @IBAction func closeBtnAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
