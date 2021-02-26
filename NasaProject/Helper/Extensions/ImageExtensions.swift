@@ -1,5 +1,5 @@
 //
-//  BackgroundGif.swift
+//  ImageExtensions.swift
 //  NasaProject
 //
 //  Created by FATIH on 26.02.2021.

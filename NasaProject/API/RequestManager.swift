@@ -9,12 +9,7 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
-struct PhotoRequest : Encodable {
-    let carType : String
-    let sol : Int
-    let page : Int
-    let camera : String?
-}
+
 
 class RequestManager {
     

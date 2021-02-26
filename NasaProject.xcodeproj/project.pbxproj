@@ -42,8 +42,11 @@
 		3D927FC825E5DD58009066EC /* DetailPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D927FC625E5DD58009066EC /* DetailPopUp.xib */; };
 		3D927FF725E5E17F009066EC /* BasePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D927FF625E5E17F009066EC /* BasePopUp.swift */; };
 		3DB7CD8925E845A100D91707 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7CD8825E845A100D91707 /* PhotoService.swift */; };
-		3DB7CDA725E86E4F00D91707 /* BackgroundGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7CDA625E86E4F00D91707 /* BackgroundGif.swift */; };
+		3DB7CDA725E86E4F00D91707 /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7CDA625E86E4F00D91707 /* ImageExtensions.swift */; };
 		3DB7CDAC25E86F0000D91707 /* spaceGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7CDAB25E86F0000D91707 /* spaceGif.gif */; };
+		3DB7CDB525E8789300D91707 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7CDB425E8789300D91707 /* StringExtensions.swift */; };
+		3DB7CDBA25E878BD00D91707 /* ApiExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7CDB925E878BD00D91707 /* ApiExtensions.swift */; };
+		3DB7CDBF25E878E500D91707 /* PhotoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7CDBE25E878E500D91707 /* PhotoRequest.swift */; };
 		444F0384A45C5CE2CA3B8323 /* Pods_NasaProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F013B5B086DF88E1536FAE /* Pods_NasaProjectTests.framework */; };
 		E79EBA986EEE45D62AB48377 /* Pods_NasaProject_NasaProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B26F2A95927C433F9B42F7 /* Pods_NasaProject_NasaProjectUITests.framework */; };
 /* End PBXBuildFile section */
@@ -110,8 +113,11 @@
 		3D927FC625E5DD58009066EC /* DetailPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPopUp.xib; sourceTree = "<group>"; };
 		3D927FF625E5E17F009066EC /* BasePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopUp.swift; sourceTree = "<group>"; };
 		3DB7CD8825E845A100D91707 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
-		3DB7CDA625E86E4F00D91707 /* BackgroundGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGif.swift; sourceTree = "<group>"; };
+		3DB7CDA625E86E4F00D91707 /* ImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtensions.swift; sourceTree = "<group>"; };
 		3DB7CDAB25E86F0000D91707 /* spaceGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spaceGif.gif; sourceTree = "<group>"; };
+		3DB7CDB425E8789300D91707 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		3DB7CDB925E878BD00D91707 /* ApiExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiExtensions.swift; sourceTree = "<group>"; };
+		3DB7CDBE25E878E500D91707 /* PhotoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRequest.swift; sourceTree = "<group>"; };
 		5CE9D592336E5482DD9C1D8B /* Pods-NasaProject-NasaProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaProject-NasaProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-NasaProject-NasaProjectUITests/Pods-NasaProject-NasaProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5D33162924B17FBB5D1EF107 /* Pods-NasaProject-NasaProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaProject-NasaProjectUITests.debug.xcconfig"; path = "Target Support Files/Pods-NasaProject-NasaProjectUITests/Pods-NasaProject-NasaProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF031430ECF0C35F70E87612 /* Pods-NasaProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaProjectTests.release.xcconfig"; path = "Target Support Files/Pods-NasaProjectTests/Pods-NasaProjectTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,8 +170,6 @@
 			children = (
 				3D4A593425E8003E00B5F376 /* NoDataPageView.swift */,
 				3D927E0025E4526E009066EC /* PhotoCollectionView.swift */,
-				3DB7CDAB25E86F0000D91707 /* spaceGif.gif */,
-				3DB7CDA625E86E4F00D91707 /* BackgroundGif.swift */,
 			);
 			path = CustomObjects;
 			sourceTree = "<group>";
@@ -252,6 +256,7 @@
 				3D927DF725E451E0009066EC /* Models */,
 				3D927E1025E45297009066EC /* RequestManager.swift */,
 				3DB7CD8825E845A100D91707 /* PhotoService.swift */,
+				3DB7CDB925E878BD00D91707 /* ApiExtensions.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -259,13 +264,14 @@
 		3D927DED25E451D0009066EC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3DB7CDB025E8781900D91707 /* Extensions */,
 				3D4A592D25E7EAEF00B5F376 /* Router */,
 				3D927F3125E4802C009066EC /* Cells */,
 				3D4A590C25E71EE000B5F376 /* Bases */,
 				3D4A590825E71EB900B5F376 /* CustomObjects */,
 				3D927DFD25E4526E009066EC /* Constant.swift */,
-				3D927DFC25E4526E009066EC /* Extensions.swift */,
 				3D927DFF25E4526E009066EC /* Util.swift */,
+				3DB7CDAB25E86F0000D91707 /* spaceGif.gif */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -273,8 +279,8 @@
 		3D927DF725E451E0009066EC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3D927E0A25E45288009066EC /* BaseResult.swift */,
-				3D927E0925E45288009066EC /* Photos.swift */,
+				3DB7CDC325E878F000D91707 /* Request */,
+				3DB7CDC425E878FA00D91707 /* Response */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -339,6 +345,33 @@
 			children = (
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		3DB7CDB025E8781900D91707 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3D927DFC25E4526E009066EC /* Extensions.swift */,
+				3DB7CDA625E86E4F00D91707 /* ImageExtensions.swift */,
+				3DB7CDB425E8789300D91707 /* StringExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3DB7CDC325E878F000D91707 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7CDBE25E878E500D91707 /* PhotoRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		3DB7CDC425E878FA00D91707 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				3D927E0A25E45288009066EC /* BaseResult.swift */,
+				3D927E0925E45288009066EC /* Photos.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		57B080A86B9A124937AF2F92 /* Pods */ = {
@@ -610,7 +643,9 @@
 				3D927E0125E4526E009066EC /* Extensions.swift in Sources */,
 				3D927DA325E450B3009066EC /* AppDelegate.swift in Sources */,
 				3D927E1625E452EF009066EC /* FilterViewModel.swift in Sources */,
+				3DB7CDBF25E878E500D91707 /* PhotoRequest.swift in Sources */,
 				3D927E7025E45946009066EC /* MainTabBarNav.swift in Sources */,
+				3DB7CDBA25E878BD00D91707 /* ApiExtensions.swift in Sources */,
 				3D927E1125E45297009066EC /* RequestManager.swift in Sources */,
 				3D927E2D25E45671009066EC /* BaseViewModel.swift in Sources */,
 				3D927FF725E5E17F009066EC /* BasePopUp.swift in Sources */,
@@ -623,11 +658,12 @@
 				3D927F2125E47B45009066EC /* HomeViewController.swift in Sources */,
 				3D4A58ED25E702AC00B5F376 /* FilterTableCell.swift in Sources */,
 				3DB7CD8925E845A100D91707 /* PhotoService.swift in Sources */,
-				3DB7CDA725E86E4F00D91707 /* BackgroundGif.swift in Sources */,
+				3DB7CDA725E86E4F00D91707 /* ImageExtensions.swift in Sources */,
 				3D927DAD25E450B3009066EC /* NasaProject.xcdatamodeld in Sources */,
 				3D927E0C25E45288009066EC /* BaseResult.swift in Sources */,
 				3D927E0525E4526E009066EC /* PhotoCollectionView.swift in Sources */,
 				3D927E2025E455DF009066EC /* RouterStoryBoard.swift in Sources */,
+				3DB7CDB525E8789300D91707 /* StringExtensions.swift in Sources */,
 				3D927FC725E5DD58009066EC /* DetailPopUp.swift in Sources */,
 				3D927F8B25E5C27D009066EC /* Router+Base.swift in Sources */,
 				3D927E0225E4526E009066EC /* Constant.swift in Sources */,
