@@ -1,9 +1,8 @@
 //
-//  NoDataPage.swift
-//  AvPass
+//  NoDataPageView.swift
+//  NasaProject
 //
-//  Created by FATIH on 31.08.2020.
-//  Copyright © 2020 Zeynep Kurt. All rights reserved.
+//  Created by FATIH on 24.02.2021.
 //
 
 import Foundation
@@ -32,11 +31,10 @@ class NoDataPageView: UIView {
         self.addSubview(imageNoData)
         
         labelNodata = UILabel(frame: CGRect(x: 16, y: ((self.frame.height - 100)  / 2 ) + 120 , width: self.frame.width - 32 , height: 50))
-        labelNodata.text = " No Data "
         labelNodata.backgroundColor = .clear
-      //  labelNodata.font = AppFont.bold.pt14
-       // labelNodata.textColor = .placeHolder
+        labelNodata.font = UIFont.boldSystemFont(ofSize: 20)
         labelNodata.textAlignment = .center
+        labelNodata.textColor = .white
         self.addSubview(labelNodata)
         
     }

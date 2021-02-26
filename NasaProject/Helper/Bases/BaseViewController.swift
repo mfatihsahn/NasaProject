@@ -27,7 +27,7 @@ class BaseViewController: UIViewController {
         //Yukleme Hata Ile bıttı
             viewModel?.onLoadDidFinishWithError = { (error) in
                 DispatchQueue.main.async {
-                    self.getError()
+                    self.getError(error : error)
                 }
             }
             
@@ -41,7 +41,7 @@ class BaseViewController: UIViewController {
     func refreshViews()  {
 
     }
-    func getError()  {
+    func getError(error : Error)  {
 
     }
     

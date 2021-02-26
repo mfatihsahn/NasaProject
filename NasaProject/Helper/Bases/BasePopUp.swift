@@ -11,9 +11,7 @@ class BasePopUp: UIViewController {
 
     @IBOutlet weak var popUpView: UIView!
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
+        super.viewDidLoad()        
         let gesture = UITapGestureRecognizer()
         gesture.addTarget(self, action: #selector(dismissableViewTapped))
         self.view.addGestureRecognizer(gesture)

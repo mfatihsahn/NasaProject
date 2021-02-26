@@ -8,17 +8,17 @@
 import UIKit
 
 protocol filterProtocol {
-    func filter(params: String)
+    func filter(params: String?)
 }
 class HomeViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: PhotoCollectionView!
+    @IBOutlet weak var backgroundGif: UIImageView!
     var noDataPage :NoDataPageView!
     var viewModel : HomeViewModel!
     
     var page :Int = 1
     var stopLoading : Bool = false
-    
     var camType : String?
     var roverType : String = ""
     var selectedIndex  :Int?
@@ -28,23 +28,19 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        backgroundGif.loadGif(name: "spaceGif")
         selectedIndex = self.tabBarController?.selectedIndex
-        
         //Select Page Type
         switch selectedIndex {
         case 0:
             roverType = "spirit"
-            viewModel.getPhotoList(camType: camType, page: page, roverType :roverType )
         case 1:
             roverType = "opportunity"
-            viewModel.getPhotoList(camType: camType, page: page, roverType :roverType )
         default:
             roverType = "curiosity"
-            viewModel.getPhotoList(camType: camType, page: page, roverType : roverType)
             break
         }
-        self.title = roverType.capitalizingFirstLetter()
-        
+        viewModel.getPhotoList(camType: camType, page: page, roverType : roverType)
         setupCollectionView()
         addNodata()
     }
@@ -59,6 +55,7 @@ class HomeViewController: BaseViewController {
     override func refreshViews() {
         
         if viewModel.responsePhotoModel.count > 0{
+            stopLoading = false
             noDataPage.isHidden = true
             photoModel.append(contentsOf: viewModel.responsePhotoModel)
             collectionView.items = photoModel
@@ -66,27 +63,26 @@ class HomeViewController: BaseViewController {
         }
         else {
             stopLoading = true
-            //If the desired result is not available when returning from the filter for No data view display
-            if  turnBackFilter {
+            //If the desired result is not available when returning from the filter for No data view display  and on the first page
+            if  turnBackFilter && page == 1 {
                 turnBackFilter = false
                 photoModel = []
                 collectionView.items = photoModel
                 noDataPage.isHidden = false
+                noDataPage.labelNodata.text = "No Data"
                 collectionView.reloadData()
             }
         }
-        
     }
     
-    override func getError() {
-        
+    override func getError(error : Error) {
+        noDataPage.isHidden = false
+        noDataPage.labelNodata.text = error.localizedDescription
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
-        
+    //If we want the data to be refreshed in each tab, the requests will be made here.
     }
     @IBAction func filterAction(_ sender: Any) {
         let vc = RouterStoryBoard.Filter.initialViewController(type: FilterViewController.self)
@@ -99,11 +95,12 @@ class HomeViewController: BaseViewController {
             vc.filterType = .CuriosityFilter
             break
         }
-        vc.camKey = camType ?? ""
+        vc.camKey = camType ?? nil
         vc.delegate = self
         Router.shared.push(vc, from: self)
     }
     
+    //CollectionView Didselect func
     func click(_ row : Int)
     {
         let vc = DetailPopUp()
@@ -116,8 +113,8 @@ class HomeViewController: BaseViewController {
     
     // MARK: - Pagination
     func load() {
-        print("page: " + String(page))
         page += 1
+        print("page: " + String(page))
         if !stopLoading //!isLoading &&
         {
             viewModel.getPhotoList(camType: camType, page: page, roverType: roverType)
@@ -130,17 +127,14 @@ class HomeViewController: BaseViewController {
         noDataPage.isHidden = true
         self.view.addSubview(noDataPage)
     }
-    
 }
 
-extension   HomeViewController : filterProtocol {
-    
-    func filter(params: String) {
+extension   HomeViewController : filterProtocol {    
+    func filter(params: String?) {
         camType = params
         photoModel = []
         page = 1
         turnBackFilter = true
         viewModel.getPhotoList(camType: camType, page: page, roverType: roverType)
     }
-    
 }

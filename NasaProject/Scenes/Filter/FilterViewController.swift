@@ -13,50 +13,94 @@ enum FilterTypes: String{
     case CuriosityFilter = "Curiosity"
 }
 
-class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FilterViewController: UIViewController {
     
+    @IBOutlet weak var backgroundGif: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    
     var filterType : FilterTypes!
     var items : [String]!
     var delegate : filterProtocol?
-    var camKey : String = ""
+    var camKey : String?
     var selectedIndex : Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        backgroundGif.loadGif(name: "spaceGif")
+        
         switch filterType {
         case .SpiritFilter:
-            self.title = "Spirit"
             self.items = otherCamArray
-            selectedIndex = otherCamKeys.firstIndex(of: camKey)
-            
+            selectedIndex = otherCamKeys.firstIndex(of: camKey ?? "")
         case .OppurtunityFilter:
-            self.title = "Oppurtunity"
             self.items = otherCamArray
-            selectedIndex = otherCamKeys.firstIndex(of: camKey)
+            selectedIndex = otherCamKeys.firstIndex(of: camKey ?? "")
         default:
-            self.title = "Curiosity"
             self.items = curiosityCamArray
-            selectedIndex = curiosityCamKeys.firstIndex(of: camKey)
-            
+            selectedIndex = curiosityCamKeys.firstIndex(of: camKey ?? "")
             break
         }
+    }
+    
+    func setupTableView(){
         tableView.register(FilterTableCell.self)
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
     
-    /*@objc func backAction(sender: UIBarButtonItem) {
-     
-     self.navigationController?.popViewController(animated: true)
-     }*/
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    @objc func switchPressed(_ sender: UISwitch) {
         
+        //Just to be able to choose one
+        for i in 0..<items.count{
+            if sender.tag == i {
+                switch filterType {
+                case .CuriosityFilter:
+                    self.camKey = curiosityCamKeys[sender.tag]
+                default:
+                    self.camKey = otherCamKeys[sender.tag]
+                    break
+                }
+                let indexPath = IndexPath(row: sender.tag, section: 0)
+                
+                let cell = tableView.cellForRow(at: indexPath) as! FilterTableCell
+                
+                if !cell.switchBtn.isOn {
+                    cell.switchBtn.isOn = false
+                    camKey = nil
+                }
+                else {
+                    cell.switchBtn.isOn = true
+                }
+                
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+            else{
+                let indexPath = IndexPath(row: i, section: 0)
+                let cell = tableView.cellForRow(at: indexPath) as! FilterTableCell
+                cell.switchBtn.isOn = false
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+            
+        }
+    }
+
+    @IBAction func filterAction(_ sender: Any) {
+        
+        delegate?.filter(params: camKey)
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
+//MARK:- TableViewDelegate Methods
+extension FilterViewController : UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return  50
     }
-    
+}
+//MARK:- TableViewDataSource Methods
+extension FilterViewController: UITableViewDataSource{
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return items.count
@@ -76,48 +120,6 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
         
-    }
-    
-    @objc func switchPressed(_ sender: UISwitch) {
-        
-        //Yalnızca bir tanesini seçebilmek için
-        for i in 0..<items.count{
-            if sender.tag == i {
-                switch filterType {
-                case .CuriosityFilter:
-                    self.camKey = curiosityCamKeys[sender.tag]
-                default:
-                    self.camKey = otherCamKeys[sender.tag]
-                    break
-                }
-                let indexPath = IndexPath(row: sender.tag, section: 0)
-                
-                let cell = tableView.cellForRow(at: indexPath) as! FilterTableCell
-                
-                if !cell.switchBtn.isOn {
-                    cell.switchBtn.isOn = false
-                    camKey = ""
-                }
-                else {
-                    cell.switchBtn.isOn = true
-                }
-                
-                tableView.deselectRow(at: indexPath, animated: true)
-            }
-            else{
-                let indexPath = IndexPath(row: i, section: 0)
-                let cell = tableView.cellForRow(at: indexPath) as! FilterTableCell
-                cell.switchBtn.isOn = false
-                tableView.deselectRow(at: indexPath, animated: true)
-            }
-            
-        }
-    }
-    
-    @IBAction func filterAction(_ sender: Any) {
-        
-        delegate?.filter(params: camKey)
-        self.navigationController?.popViewController(animated: true)
     }
     
 }

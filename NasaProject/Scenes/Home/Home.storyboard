@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,9 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5AV-p1-WQc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XjJ-Sj-eCo" customClass="PhotoCollectionView" customModule="NasaProject" customModuleProvider="target">
-                                <rect key="frame" x="16" y="88" width="382" height="764"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="16" y="98" width="382" height="754"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kwE-5I-4Sw">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -41,9 +43,13 @@
                         <viewLayoutGuide key="safeArea" id="mo6-cc-ew6"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="XjJ-Sj-eCo" firstAttribute="top" secondItem="mo6-cc-ew6" secondAttribute="top" id="8o7-Fg-C9u"/>
+                            <constraint firstItem="XjJ-Sj-eCo" firstAttribute="top" secondItem="mo6-cc-ew6" secondAttribute="top" constant="10" id="8o7-Fg-C9u"/>
+                            <constraint firstItem="mo6-cc-ew6" firstAttribute="trailing" secondItem="5AV-p1-WQc" secondAttribute="trailing" id="LHd-zY-OIc"/>
+                            <constraint firstItem="mo6-cc-ew6" firstAttribute="bottom" secondItem="5AV-p1-WQc" secondAttribute="bottom" id="MDe-nC-Uho"/>
                             <constraint firstItem="mo6-cc-ew6" firstAttribute="trailing" secondItem="XjJ-Sj-eCo" secondAttribute="trailing" constant="16" id="PMj-FU-kGF"/>
+                            <constraint firstItem="5AV-p1-WQc" firstAttribute="leading" secondItem="mo6-cc-ew6" secondAttribute="leading" id="UMn-pl-pcK"/>
                             <constraint firstItem="mo6-cc-ew6" firstAttribute="bottom" secondItem="XjJ-Sj-eCo" secondAttribute="bottom" constant="10" id="amd-VM-Dij"/>
+                            <constraint firstItem="5AV-p1-WQc" firstAttribute="top" secondItem="cxF-Ft-fn8" secondAttribute="top" id="eDq-1c-aD6"/>
                             <constraint firstItem="XjJ-Sj-eCo" firstAttribute="leading" secondItem="mo6-cc-ew6" secondAttribute="leading" constant="16" id="hra-zL-L2d"/>
                         </constraints>
                     </view>
@@ -55,6 +61,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backgroundGif" destination="5AV-p1-WQc" id="gEf-sg-RWL"/>
                         <outlet property="collectionView" destination="XjJ-Sj-eCo" id="kSW-wc-EXf"/>
                     </connections>
                 </viewController>
@@ -65,26 +72,29 @@
         <!--Main Tab Bar Nav-->
         <scene sceneID="Eyr-bg-ARm">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cUp-jC-hDj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qHB-LH-E8L" customClass="MainTabBarNav" customModule="NasaProject" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zej-8n-jCt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="Iad-eK-OX8" kind="relationship" relationship="rootViewController" id="9Ij-gR-J9Q"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cUp-jC-hDj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-23" y="113"/>
         </scene>
     </scenes>
     <resources>
         <image name="filterImage" width="48" height="48"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

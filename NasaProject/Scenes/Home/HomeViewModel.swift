@@ -10,7 +10,7 @@ import Foundation
 class HomeViewModel : BaseViewModel {
     
     var responsePhotoModel = [Photos]()
-    
+
     func getPhotoList(camType : String? , page : Int, roverType : String )
     {
         self.loadDidStart()
