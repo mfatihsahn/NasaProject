@@ -41,6 +41,7 @@ class FilterViewController: UIViewController {
             selectedIndex = curiosityCamKeys.firstIndex(of: camKey ?? "")
             break
         }
+        setupTableView()
     }
     
     func setupTableView(){
